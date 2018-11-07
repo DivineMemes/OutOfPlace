@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReturnToCheckPoint : MonoBehaviour {
+public class ReturnToCheckPoint : MonoBehaviour
+{
+    Vector3 CurrentCheckPoint;
+    CheckPointManager checkpoint;
+    void Start()
+    {
+        CurrentCheckPoint = checkpoint.CheckPoint;
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.position = CurrentCheckPoint;
+        }
+    }
 }

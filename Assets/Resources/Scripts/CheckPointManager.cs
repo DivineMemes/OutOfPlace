@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour
 {
-    List<GameObject> points;
-    
-	void Start ()
+    public Vector3 CheckPoint;
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        CheckPoint = gameObject.transform.position;
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "CheckPoint")
+        {
+            CheckPoint = collision.transform.position;
+        }
+    }
 }

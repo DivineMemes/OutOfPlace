@@ -26,22 +26,22 @@ public class CameraScript : MonoBehaviour
         return angle;
     }
 
-   
+
 
     void Start()
     {
-       
+
         speedH = 5f;
 
     }
 
-    
+
     void Update()
     {
-        
-            yaw += Input.GetAxis("Mouse X") * speedH;
-        
-//            yaw -= Input.GetAxis("Mouse X") * speedH;
+
+        yaw += Input.GetAxis("Mouse X") * speedH;
+
+        //            yaw -= Input.GetAxis("Mouse X") * speedH;
         pitch -= Input.GetAxis("Mouse Y") * speedV;
 
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
