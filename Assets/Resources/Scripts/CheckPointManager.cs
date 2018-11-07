@@ -5,11 +5,15 @@ using UnityEngine;
 public class CheckPointManager : MonoBehaviour
 {
     public Vector3 CheckPoint;
-    void Start()
+    void Awake()
     {
         CheckPoint = gameObject.transform.position;
     }
 
+    public void GoToLastCheckpoint()
+    {
+        transform.position = CheckPoint;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
